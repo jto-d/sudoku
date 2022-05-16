@@ -1,27 +1,9 @@
-import argparse
-from tkinter import Tk, Canvas, Frame, Button, BOTH, TOP, BOTTOM
+from tkinter import Tk
 from Board import Board
+from UI import UI
 
-
-MARGIN = 20
-SIDE = 50
-
-WIDTH = HEIGHT = MARGIN * 2 + SIDE * 9
-
-class SudokuUI(Frame):
-    def __init__(self, parent, game):
-        self.game = game
-        self.parent = parent
-        Frame.__init__(self, parent)
-
-
-        self.row, self.col = 0,0
-
-        self.__initUI()
-    
-    def __initUI(self):
-        self.parent.title("Sudoku")
-        self.pack(fill=BOTH, side=TOP)
+MARGIN = 50
+SIDE = 40
 
 def board_setup(file_name: str):
     with open(file_name) as f:
@@ -34,4 +16,14 @@ init_board = board_setup(FILE_NAME)
 
 b = Board(init_board)
 
-print(str(b))
+
+root = Tk()
+game = UI(root, b, MARGIN, SIDE)
+
+root.mainloop()
+
+
+
+
+
+
