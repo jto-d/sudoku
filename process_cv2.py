@@ -44,7 +44,7 @@ for i, c in enumerate(cnts, 1):
 
 for row in board:
     for square in row:
-        mask = np.ones(img.shape, dtype="uint8") 
+        mask = np.zeroes(img.shape, dtype=np.uint8) 
         cv2.drawContours(mask, [c], -1, (255,255,255), -1)
         result = cv2.bitwise_and(img, mask)
         result[mask==0] = 255
