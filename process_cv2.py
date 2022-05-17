@@ -48,8 +48,8 @@ for row in board:
         cv2.drawContours(mask, [c], -1, (255,255,255), -1)
         result = cv2.bitwise_and(img, mask)
         result[mask==0] = 255
-        # cv2.imshow('result',result)
-        # cv2.waitKey(10)
+        cv2.imshow('result',result)
+        cv2.waitKey(100)
 
 cv2.imshow('thresh', thresh)
 cv2.waitKey()
